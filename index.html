@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather app</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/7db11a094f.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <div class="row search-city">
+          <div class="col-8">
+            <form id="search-form">
+              <input
+                type="search"
+                placeholder="Search city"
+                id="search-engine"
+                autocomplete="off"
+                autofocus="on"
+              />
+              <button type="submit" class="btn-search" />
+              <i class="fas fa-search"></i>
+            </button>
+             <button class="btn-geo" id="geo">
+            <i class="fas fa-map-marker-alt"></i>
+           </button>
+            </form>
+          </div>
+          <div class="col-4 cel-fah">
+            <div class="temp-scale-btn">
+              <button class="btn-celsius" id="cels">℃</button>
+              <button class="btn-fahrenheit" id="fahr">
+                ℉
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="date">
+          <span id="datetime"></span>
+        </div>
+        <div class="row city-content">
+          <div class="col-12 city-name">
+    
+            <h1>
+                 Madrid
+            </h1>
+          </div>
+        </div>
+        <div class="row todayWeather">
+          <div class="col-12">
+            <h2>
+              19°
+            </h2>
+          </div>
+        </div>
+        <div class="row extra-info">
+          <div class="col-6">
+            <div class="background-image">
+              <img src="images/undraw_walking_outside_5ueb.svg" width="125px" />
+            </div>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li class="main-weather-i" id="todayWeather">Sunny <img src="images/svg/009-sun-1.svg" width="20px;" /></li>
+              <li>Humidity: <span id="hum">25<span>%</li>
+              <li>Wind: <span id="wind">13</span>km/h</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row next-days-short">
+          <div class="col next-day">TUE</div>
+          <div class="col next-day">WED</div>
+          <div class="col next-day">THU</div>
+          <div class="col next-day">FRI</div>
+          <div class="col next-day">SAT</div>
+        </div>
+        <div class="row next-days-icons">
+          <div class="col weather-icon">
+            <img src="images/svg/009-sun-1.svg" width="35px;" />
+          </div>
+          <div class="col weather-icon">
+            <img src="images/svg/023-rain-3.svg" width="35px;" />
+          </div>
+          <div class="col weather-icon">
+            <img src="images/svg/044-cloudy.svg" width="35px;" />
+          </div>
+          <div class="col weather-icon">
+            <img src="images/svg/046-cloudy-day.svg" width="35px;" />
+          </div>
+          <div class="col weather-icon">
+            <img src="images/svg/039-foggy-day.svg" width="35px;" />
+          </div>
+        </div>
+        <div class="row next-days-temp" id="all-week">
+          <div class="col temp">
+            <span class="high">18</span>|<span class= "low">14</span>
+          </div>
+          <div class="col temp">
+            <span class="high">17</span>|<span class= "low">15</span>
+          </div>
+          <div class="col temp">
+            <span class="high">19</span>|<span class= "low">17</span>
+          </div>
+          <div class="col temp">
+            <span class="high">20</span>|<span class= "low">13</span>
+          </div>
+          <div class="col temp">
+            <span class="high">21</span>|<span class= "low">13</span>
+          </div>
+        </div>
+      </div>
+      <div class="coded-by">
+          <small>
+            Weather app coded by Dominika Musiol 👩🏻‍💻
+          </small>
+    </div>
+   <script type="text/javascript" src="src/index.js"></script>
+  </body>
+</html>
