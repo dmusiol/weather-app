@@ -93,6 +93,12 @@ div.col-2 {
   padding: 1px;
 }
 
+button.active {
+  border-radius: 4px;
+  background-color: #e5e6ed;
+  border: 1px solid #e5e6ed;
+}
+
 .btn-celsius {
   background-color: #a6bfd8;
   border: 1px solid #a6bfd8;

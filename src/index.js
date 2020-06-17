@@ -35,21 +35,18 @@ currentDate.innerHTML = `${today}, ${currentMonth} ${date}, ${currentYear}, ${ho
 /* SEARCH ENGINE */
 
 function displayWeather(response) {
-  let temp = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("h2");
-  currentTemp.innerHTML = `${temp}°`;
-
   let weather = document.querySelector("#todayWeather");
-  weather.innerHTML = response.data.weather[0].main;
-
   let humidity = document.querySelector("#hum");
-  humidity.innerHTML = ` ${Math.round(response.data.main.humidity)}%`;
-
   let wind = document.querySelector("#wind");
   let windConvert = Math.round(response.data.wind.speed * 3.6);
-  wind.innerHTML = `${windConvert}`;
-
   let city = document.querySelector("h1");
+
+  celsiusTemp = Math.round(response.data.main.temp);
+  currentTemp.innerHTML = `${celsiusTemp}°`;
+  weather.innerHTML = response.data.weather[0].main;
+  humidity.innerHTML = ` ${Math.round(response.data.main.humidity)}%`;
+  wind.innerHTML = `${windConvert}`;
   city.innerHTML = response.data.name;
 }
 
@@ -87,3 +84,29 @@ function getPosition(event) {
 
 let locationButton = document.querySelector("#geo");
 locationButton.addEventListener("click", getPosition);
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("h2");
+  // remove active class from cels
+  celsius.classList.remove("active");
+  fahrenheits.classList.add("active");
+  let fahrTemp = (celsiusTemp * 9) / 5 + 32;
+  currentTemp.innerHTML = `${Math.round(fahrTemp)}°`;
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("h2");
+  celsius.classList.add("active");
+  fahrenheits.classList.remove("active");
+  currentTemp.innerHTML = `${celsiusTemp}°`;
+}
+
+let celsiusTemp = null;
+
+let fahrenheits = document.querySelector("#fahr");
+fahrenheits.addEventListener("click", displayFahrenheitTemp);
+
+let celsius = document.querySelector("#cels");
+celsius.addEventListener("click", displayCelsiusTemp);
