@@ -106,7 +106,7 @@ button.active {
 }
 
 .btn-fahrenheit {
-  margin-left: -5px;
+  margin-left: -3px;
   background-color: #a6bfd8;
   border: 1px solid #a6bfd8;
   border-radius: 4px;
@@ -160,7 +160,7 @@ div {
   margin-top: 20px;
 }
 .weather-app {
-  margin: 15px auto;
+  margin: 15px auto 10px auto;
   background-image: linear-gradient(
     to top,
     rgb(250, 245, 245) 15%,
@@ -201,7 +201,7 @@ div h2 {
   line-height: 1em;
   text-align: center;
   padding-right: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   margin-top: 5px;
 }
 
@@ -229,27 +229,40 @@ div .background-image {
 
 /* NEXT DAYS*/
 
-.next-days-short {
+.weather-forecast {
   margin-top: 30px;
   margin-bottom: 0;
-  margin-right: -18px;
-  margin-left: -18px;
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 10px;
 }
 
-.next-days-icons {
-  text-align: center;
-  padding: 5px 0;
+.weather-forecast h3 {
+  font-size: 14px;
+  height: 15px;
+  line-height: 15px;
+  padding-top: 10px;
+  padding-bottom: 25px;
 }
 
-.next-days-temp {
+.weather-forecast img {
+  display: block;
+  margin: 0 auto;
+  height: 35px;
+  width: 35px;
+}
+
+.col.next-day {
+  padding: 0 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.col.temp {
   text-align: center;
-  padding: 10px 0;
+  padding: 15px 0 0 0;
   font-size: 13px;
   line-height: 1.6em;
 }
+
 .high {
   font-weight: 600;
 }
@@ -260,10 +273,11 @@ div .background-image {
 
 .coded-by {
   text-align: center;
-  margin-top: 5px;
+  margin-top: 0;
   margin-bottom: 10px;
   font-size: 90%;
 }
+
 /* Media Queries for small devices */
 
 @media (max-width: 500px) {
@@ -277,12 +291,8 @@ div .background-image {
   .btn-fahrenheit {
     padding: 1px 5px;
   }
-  .col.temp {
-    padding: 0 5px;
-    position: relative;
-    left: -1px;
-  }
+
   span {
-    padding: 0 2px;
+    padding: 0 1px;
   }
 }

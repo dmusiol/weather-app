@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Weather app 🔆</title>
+    <title>Weather app</title>
     <link rel="stylesheet" href="src/style.css" />
     <link
       rel="stylesheet"
@@ -76,59 +76,55 @@
           </div>
           <div class="col-6">
             <ul>
-              <li class="main-weather-i" id="todayWeather">Sunny <img src="images/svg/009-sun-1.svg" width="20px;" /></li>
+              <li class="main-weather-i" id="todayWeather">Sunny</li>
               <li>Humidity: <span id="hum">25<span>%</li>
               <li>Wind: <span id="wind">13</span>km/h</li>
             </ul>
           </div>
         </div>
-        <div class="row next-days-short">
-          <div class="col next-day">TUE</div>
-          <div class="col next-day">WED</div>
-          <div class="col next-day">THU</div>
-          <div class="col next-day">FRI</div>
-          <div class="col next-day">SAT</div>
-        </div>
-        <div class="row next-days-icons">
-          <div class="col weather-icon">
+        <div class="row weather-forecast">
+          <div class="col next-day">
+            <h3>SUN</h3>
             <img src="images/svg/009-sun-1.svg" width="35px;" />
-          </div>
-          <div class="col weather-icon">
-            <img src="images/svg/023-rain-3.svg" width="35px;" />
-          </div>
-          <div class="col weather-icon">
-            <img src="images/svg/044-cloudy.svg" width="35px;" />
-          </div>
-          <div class="col weather-icon">
-            <img src="images/svg/046-cloudy-day.svg" width="35px;" />
-          </div>
-          <div class="col weather-icon">
-            <img src="images/svg/039-foggy-day.svg" width="35px;" />
-          </div>
-        </div>
-        <div class="row next-days-temp" id="all-week">
-          <div class="col temp">
+            <div class="col temp">
             <span class="high">18</span>|<span class= "low">14</span>
+            </div>
           </div>
-          <div class="col temp">
-            <span class="high">17</span>|<span class= "low">15</span>
+          <div class="col next-day">
+            <h3>MON</h3>
+            <img src="images/svg/009-sun-1.svg" width="35px;" />
+            <div class="col temp">
+            <span class="high">17</span>|<span class= "low">16</span>
+            </div>
           </div>
-          <div class="col temp">
-            <span class="high">19</span>|<span class= "low">17</span>
+          <div class="col next-day">
+            <h3>TUE</h3>
+            <img src="images/svg/009-sun-1.svg" width="35px;" />
+            <div class="col temp">
+            <span class="high">18</span>|<span class= "low">16</span>
+            </div>
           </div>
-          <div class="col temp">
-            <span class="high">20</span>|<span class= "low">13</span>
+          <div class="col next-day">
+            <h3>WED</h3>
+            <img src="images/svg/009-sun-1.svg" width="35px;" />
+            <div class="col temp">
+            <span class="high">20</span>|<span class= "low">15</span>
+            </div>
           </div>
-          <div class="col temp">
-            <span class="high">21</span>|<span class= "low">13</span>
+          <div class="col next-day">
+            <h3>THU</h3>
+            <img src="images/svg/009-sun-1.svg" width="35px;" />
+            <div class="col temp">
+            <span class="high">18</span>|<span class= "low">14</span>
+            </div>
           </div>
-        </div>
       </div>
+       </div>
       <div class="coded-by">
           <small>
             <a href="https://github.com/dmusiol/weather-app"> Open-source code</a> by Dominika Musiol 👩🏻‍💻
           </small>
-    </div>
+      </div>
    <script type="text/javascript" src="src/index.js"></script>
   </body>
 </html>
