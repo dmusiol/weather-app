@@ -122,12 +122,16 @@ function displayFahrenheitTemp(event) {
   let currentTemp = document.querySelector("h2");
   // remove active class from cels
   celsius.classList.remove("active");
+  fahrenheits.classList.add("active");
   let fahrTemp = (celsiusTemp * 9) / 5 + 32;
   currentTemp.innerHTML = `${Math.round(fahrTemp)}°`;
 }
 
 function displayCelsiusTemp(event) {
   event.preventDefault();
+
+  celsius.classList.add("active");
+  fahrenheits.classList.remove("active");
   let currentTemp = document.querySelector("h2");
   currentTemp.innerHTML = `${celsiusTemp}°`;
 }
