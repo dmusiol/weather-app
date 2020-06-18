@@ -1,38 +1,51 @@
-let now = new Date();
+// DATE FUNCTIONS //
 
-let date = now.getDate();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
 
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+  let date = now.getDate();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tueseday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[now.getMonth()];
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+
+  function displayMinutes() {
+    if (minutes < 10) {
+      return `0${minutes}`;
+    } else {
+      return `${minutes}`;
+    }
+  }
+  let formatMinutes = displayMinutes();
+
+  let today = `${day}, ${month} ${date}, ${hour}:${formatMinutes}`;
+  return `${today}`;
 }
-let currentYear = now.getFullYear();
 
-let dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let today = dayList[now.getDay()];
-
-let monthsList = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-let currentMonth = monthsList[now.getMonth()];
-
-let currentDate = document.querySelector("#datetime");
-currentDate.innerHTML = `${today}, ${currentMonth} ${date}, ${currentYear}, ${hours}:${minutes}`;
-
-/* SEARCH ENGINE */
+// TODAY WEATHER //
 
 function displayWeather(response) {
   let currentTemp = document.querySelector("h2");
@@ -41,6 +54,7 @@ function displayWeather(response) {
   let wind = document.querySelector("#wind");
   let windConvert = Math.round(response.data.wind.speed * 3.6);
   let city = document.querySelector("h1");
+  let currentDate = document.querySelector("#datetime");
 
   celsiusTemp = Math.round(response.data.main.temp);
   currentTemp.innerHTML = `${celsiusTemp}°`;
@@ -48,23 +62,39 @@ function displayWeather(response) {
   humidity.innerHTML = ` ${Math.round(response.data.main.humidity)}%`;
   wind.innerHTML = `${windConvert}`;
   city.innerHTML = response.data.name;
+  currentDate.innerHTML = formatDate(response.data.dt * 1000);
+}
+
+// FORECAST //
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  let day = days[date.getDay()];
+  return `${day}`;
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+}
+
+// SEARCH CITY //
+
+function search(city) {
+  let apiKey = `34c58b2c4ee93547facc769d027d3250`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+  axios.get(url).then(displayWeather);
+
+  url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(url).then(displayForecast);
 }
 
 function displayCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-engine");
-  let city = document.querySelector("h1");
-  let currentCity = `${searchInput.value}`;
-  city.innerHTML = currentCity;
-
-  let apiKey = `34c58b2c4ee93547facc769d027d3250`;
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&units=metric&appid=${apiKey}`;
-
-  axios.get(url).then(displayWeather);
+  search(searchInput.value);
 }
-
-let searchResult = document.querySelector("#search-form");
-searchResult.addEventListener("submit", displayCity);
 
 /* CURRENT LOCATION */
 
@@ -85,12 +115,13 @@ function getPosition(event) {
 let locationButton = document.querySelector("#geo");
 locationButton.addEventListener("click", getPosition);
 
+// UNITS CONVERSION //
+
 function displayFahrenheitTemp(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("h2");
   // remove active class from cels
   celsius.classList.remove("active");
-  fahrenheits.classList.add("active");
   let fahrTemp = (celsiusTemp * 9) / 5 + 32;
   currentTemp.innerHTML = `${Math.round(fahrTemp)}°`;
 }
@@ -98,15 +129,18 @@ function displayFahrenheitTemp(event) {
 function displayCelsiusTemp(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("h2");
-  celsius.classList.add("active");
-  fahrenheits.classList.remove("active");
   currentTemp.innerHTML = `${celsiusTemp}°`;
 }
 
 let celsiusTemp = null;
+
+let cityForm = document.querySelector("#search-form");
+cityForm.addEventListener("submit", displayCity);
 
 let fahrenheits = document.querySelector("#fahr");
 fahrenheits.addEventListener("click", displayFahrenheitTemp);
 
 let celsius = document.querySelector("#cels");
 celsius.addEventListener("click", displayCelsiusTemp);
+
+search("Madrid");
