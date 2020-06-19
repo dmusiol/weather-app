@@ -45,20 +45,6 @@ function formatDate(timestamp) {
   return `${today}`;
 }
 
-function formatHours(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  return `${hours}:${minutes}`;
-}
-
 // TODAY WEATHER //
 
 function displayWeather(response) {
@@ -69,6 +55,7 @@ function displayWeather(response) {
   let windConvert = Math.round(response.data.wind.speed * 3.6);
   let city = document.querySelector("h1");
   let currentDate = document.querySelector("#datetime");
+  let apiKey = `34c58b2c4ee93547facc769d027d3250`;
 
   celsiusTemp = Math.round(response.data.main.temp);
   currentTemp.innerHTML = `${celsiusTemp}°`;
@@ -77,6 +64,10 @@ function displayWeather(response) {
   wind.innerHTML = `${windConvert}`;
   city.innerHTML = response.data.name;
   currentDate.innerHTML = formatDate(response.data.dt * 1000);
+
+  url = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&
+exclude=minutely,hourly,current&appid=${apiKey}&units=metric`;
+  axios.get(url).then(displayForecast);
 }
 
 // FORECAST //
@@ -94,10 +85,10 @@ function displayForecast(response) {
   let forecast = null;
 
   for (let index = 0; index < 5; index++) {
-    forecast = response.data.list[index];
+    forecast = response.data.daily[index];
     forecatsItem.innerHTML += `
           <div class="col next-day">
-            <h3>${formatHours(forecast.dt * 1000)}</h3>
+            <h3>${formatDay(forecast.dt * 1000)}</h3>
             <img
         src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
@@ -105,9 +96,9 @@ function displayForecast(response) {
       />
             <div class="col temp">
             <span class="high">${Math.round(
-              forecast.main.temp_max
+              forecast.temp.max
             )}</span> | <span class= "low">${Math.round(
-      forecast.main.temp_min
+      forecast.temp.min
     )}</span>
             </div>
           </div>`;
@@ -121,9 +112,6 @@ function search(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
   axios.get(url).then(displayWeather);
-
-  url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(url).then(displayForecast);
 }
 
 function displayCity(event) {
