@@ -41,7 +41,7 @@ function formatDate(timestamp) {
   }
   let formatMinutes = displayMinutes();
 
-  let today = `${day}, ${month} ${date}, ${hour}:${formatMinutes}`;
+  let today = `${day}, ${month} ${date} ${hour}:${formatMinutes}`;
   return `${today}`;
 }
 
@@ -60,7 +60,7 @@ function displayWeather(response) {
   celsiusTemp = Math.round(response.data.main.temp);
   currentTemp.innerHTML = `${celsiusTemp}°`;
   weather.innerHTML = response.data.weather[0].main;
-  humidity.innerHTML = ` ${Math.round(response.data.main.humidity)}%`;
+  humidity.innerHTML = ` ${Math.round(response.data.main.humidity)} %`;
   wind.innerHTML = `${windConvert}`;
   city.innerHTML = response.data.name;
   currentDate.innerHTML = formatDate(response.data.dt * 1000);
