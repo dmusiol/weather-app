@@ -84,7 +84,7 @@ function displayForecast(response) {
   forecatsItem.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 5; index++) {
+  for (let index = 1; index < 6; index++) {
     forecast = response.data.daily[index];
     forecatsItem.innerHTML += `
           <div class="col next-day">
