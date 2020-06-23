@@ -90,7 +90,7 @@ function displayForecast(response) {
           <div class="col next-day">
             <h3>${formatDay(forecast.dt * 1000)}</h3>
             <img
-        src="images/svg/${forecast.weather[0].icon}.svg"
+        src="images/icons/${forecast.weather[0].icon}.svg"
       />
             <div class="col temp">
             <span class="high">${Math.round(
