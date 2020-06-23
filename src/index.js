@@ -116,6 +116,9 @@ function displayCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-engine");
   search(searchInput.value);
+
+  celsius.classList.add("active");
+  fahrenheits.classList.remove("active");
 }
 
 /* CURRENT LOCATION */
