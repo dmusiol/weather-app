@@ -230,7 +230,7 @@ div .background-image {
 /* NEXT DAYS*/
 
 .weather-forecast {
-  margin-top: 30px;
+  margin-top: 35px;
   margin-bottom: 0;
   text-align: center;
 }
@@ -240,16 +240,17 @@ div .background-image {
   height: 15px;
   line-height: 15px;
   padding-top: 10px;
-  padding-bottom: 25px;
+  padding-bottom: 35px;
   margin-right: -18px;
   margin-left: -18px;
+  margin-bottom: 0;
 }
 
 .weather-forecast img {
   display: block;
   margin: 0 auto;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 
 .col.next-day {
@@ -260,7 +261,7 @@ div .background-image {
 
 .col.temp {
   text-align: center;
-  padding: 15px 0 0 0;
+  padding: 20px 0 0 0;
   font-size: 13px;
   line-height: 1.6em;
 }
