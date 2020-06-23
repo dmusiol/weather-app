@@ -86,7 +86,7 @@ div.col-2 {
 
 .temp-scale-btn {
   position: relative;
-  left: 28px;
+  left: 32px;
   margin-right: 0;
   height: 100%;
   margin-top: 0;
@@ -167,8 +167,8 @@ div {
     #a7bfd8 85%
   );
   padding: 18px;
-  max-width: 380px;
-  height: 600px;
+  max-width: 390px;
+  height: 610px;
   border: 0.5px solid #91acca;
   border-radius: 10px;
   box-shadow: 0 3px 16px 0 gainsboro;
@@ -241,13 +241,15 @@ div .background-image {
   line-height: 15px;
   padding-top: 10px;
   padding-bottom: 25px;
+  margin-right: -18px;
+  margin-left: -18px;
 }
 
 .weather-forecast img {
   display: block;
   margin: 0 auto;
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
 }
 
 .col.next-day {
@@ -276,23 +278,4 @@ div .background-image {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 90%;
-}
-
-/* Media Queries for small devices */
-
-@media (max-width: 500px) {
-  .temp-scale-btn {
-    position: relative;
-    left: 30px;
-  }
-  .btn-celsius {
-    padding: 1px 5px;
-  }
-  .btn-fahrenheit {
-    padding: 1px 5px;
-  }
-
-  span {
-    padding: 0 1px;
-  }
 }
