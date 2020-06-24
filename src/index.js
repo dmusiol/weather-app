@@ -14,6 +14,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[now.getDay()];
+
   let months = [
     "Jan",
     "Feb",
@@ -41,7 +42,7 @@ function formatDate(timestamp) {
   }
   let formatMinutes = displayMinutes();
 
-  let today = `${day}, ${month} ${date} ${hour}:${formatMinutes}`;
+  let today = `Updated: ${day} ${hour}:${formatMinutes}`;
   return `${today}`;
 }
 
@@ -56,6 +57,7 @@ function displayWeather(response) {
   let city = document.querySelector("h1");
   let currentDate = document.querySelector("#datetime");
   let apiKey = `34c58b2c4ee93547facc769d027d3250`;
+  let backgroundImage = document.querySelector("#background-img");
 
   celsiusTemp = Math.round(response.data.main.temp);
   currentTemp.innerHTML = `${celsiusTemp}°`;
@@ -64,6 +66,10 @@ function displayWeather(response) {
   wind.innerHTML = `${windConvert}`;
   city.innerHTML = response.data.name;
   currentDate.innerHTML = formatDate(response.data.dt * 1000);
+  backgroundImage.setAttribute(
+    "src",
+    `images/background/${response.data.weather[0].icon}.svg`
+  );
 
   url = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&
 exclude=minutely,hourly,current&appid=${apiKey}&units=metric`;
