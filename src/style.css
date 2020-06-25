@@ -48,8 +48,8 @@ i {
 }
 .btn-geo {
   border-radius: 4px;
-  background-color: #a6bfd8;
-  border: 1px solid #a6bfd8;
+  background-color: #7a9fc7;
+  border: 1px solid #7a9fc7;
   margin-top: 0;
   padding-bottom: 2px;
   padding-top: 1px;
@@ -100,15 +100,15 @@ button.active {
 }
 
 .btn-celsius {
-  background-color: #a6bfd8;
-  border: 1px solid #a6bfd8;
+  background-color: #7a9fc7;
+  border: 1px solid #7a9fc7;
   transition: all 200ms ease-in-out;
 }
 
 .btn-fahrenheit {
   margin-left: -3px;
-  background-color: #a6bfd8;
-  border: 1px solid #a6bfd8;
+  background-color: #7a9fc7;
+  border: 1px solid #7a9fc7;
   border-radius: 4px;
   transition: all 200ms ease-in-out;
 }
@@ -163,13 +163,13 @@ div {
   margin: 15px auto 10px auto;
   background-image: linear-gradient(
     to top,
-    rgb(250, 245, 245) 15%,
-    #a7bfd8 85%
+    rgb(250, 245, 245) 10%,
+    #7a9fc7 90%
   );
   padding: 18px;
   max-width: 390px;
   height: 610px;
-  border: 0.5px solid #91acca;
+  border: 0.5px solid #7a9fc7;
   border-radius: 10px;
   box-shadow: 0 3px 16px 0 gainsboro;
 }
